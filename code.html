@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>File Format Converter</title>
+  <script>
+    function convertFile() {
+      var inputFile = document.getElementById("file-input").files[0];
+      var inputFormat = document.getElementById("input-format").value;
+      var outputFormat = document.getElementById("output-format").value;
+
+      if (inputFile) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+          var convertedFile = new File([e.target.result], "converted_file." + outputFormat, { type: "text/plain" });
+          downloadFile(convertedFile);
+        };
+
+        reader.readAsText(inputFile);
+      }
+    }
+
+    function downloadFile(file) {
+      var downloadLink = document.createElement("a");
+      downloadLink.href = URL.createObjectURL(file);
+      downloadLink.download = file.name;
+      downloadLink.click();
+    }
+  </script>
+</head>
+<body>
+  <h1>File Format Converter</h1>
+  <label for="file-input">Select file:</label>
+  <input type="file" id="file-input">
+  <br>
+  <label for="input-format">Select input format:</label>
+  <select id="input-format">
+    <option value="txt">TXT</option>
+    <option value="csv">CSV</option>
+    <option value="doc">DOC</option>
+    <!-- Add more options for other input formats as needed -->
+  </select>
+  <br>
+  <label for="output-format">Select output format:</label>
+  <select id="output-format">
+    <option value="txt">TXT</option>
+    <option value="csv">CSV</option>
+    <option value="doc">DOC</option>
+    <!-- Add more options for other output formats as needed -->
+  </select>
+  <br>
+  <button onclick="convertFile()">Convert</button>
+</body>
+</html>
