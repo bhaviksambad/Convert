@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notepad Format Converter</title>
+</head>
+<body>
+  <h1>Notepad Format Converter</h1>
+  <form action="convert.php" method="post" enctype="multipart/form-data">
+    <label for="file">Select file:</label>
+    <input type="file" id="file" name="file">
+    <br>
+    <label for="output-format">Select output format:</label>
+    <select id="output-format" name="output-format">
+      <option value="txt">TXT</option>
+      <option value="csv">CSV</option>
+      <option value="doc">DOC</option>
+      <option value="docx">DOCX</option>
+      <option value="pdf">PDF</option>
+      <option value="rtf">RTF</option>
+      <option value="html">HTML</option>
+      <option value="xml">XML</option>
+      <option value="odt">ODT</option>
+      <option value="markdown">Markdown</option>
+      <option value="tex">TeX</option>
+      <option value="json">JSON</option>
+      <option value="xls">XLS</option>
+      <option value="xlsx">XLSX</option>
+      <option value="ppt">PPT</option>
+      <option value="pptx">PPTX</option>
+      <option value="jpg">JPG</option>
+      <option value="png">PNG</option>
+      <option value="gif">GIF</option>
+      <option value="bmp">BMP</option>
+      <option value="tiff">TIFF</option>
+      <!-- Add more options for other formats as needed -->
+    </select>
+    <br>
+    <input type="submit" value="Convert">
+  </form>
+</body>
+</html>
